@@ -1,0 +1,44 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <!-- Make site responsive on mobile/tablet -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Yelp Camp</title>
+       <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+       <link rel="stylesheet" href="/stylesheets/app.css"> 
+    </head>
+    <body>
+      <nav class="navbar navbar-light bg-light">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Yelp Camp</a>
+        </div>
+        <div class="collapse navbar-collapse" style="display: block">
+             <ul class="navbar-nav float-right">
+               <%  if(!currentUser){ %>
+                 
+                 <li><a href="/login">Login</a></li>
+                 <li><a href="/register">Sign Up</a></li>
+              <%   }else { %>
+                  <li><a href="">Signed In As <%= currentUser.username %></a></li>
+                 <li><a href="/logout">Logout</a></li>
+               <%  } %>
+             </ul> 
+            
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <% if(error && error.length >0){   %>
+    <div class="alert alert-danger" role="alert"><%=error %>    </div>
+    <% } %>
+      <% if(success && success.length >0){   %>
+        <div class="alert alert-success" role="alert"><%=success %>    </div>
+            <% } %>
+</div>
+
+<div class="container">
+
+
+        
